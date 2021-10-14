@@ -1,7 +1,8 @@
 import redis
 from datetime import datetime
-r = redis.Redis(host='localhost', port=6379, db=0)
+
 import time
+import argparse
 # Poll queue
 # Scan ports for each IP
 # Index findings into elasticsearch
@@ -34,6 +35,10 @@ def index_findings():
 
 # Press the green button in the gutter to run the script.
 if __name__ == '__main__':
+    parser = argparse.ArgumentParser("scanworker")
+    parser.add_argument("hostip", help="Provide host IP Address", type=str)
+    args = parser.parse_args()
+    r = redis.Redis(host=args.hostip, port=6379, db=0)
     frequent_job()
 
 # See PyCharm help at https://www.jetbrains.com/help/pycharm/
