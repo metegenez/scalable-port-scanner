@@ -9,7 +9,7 @@ To test application locally, we need virtual machines and Docker Desktop (Window
 
 - Create a Linux/Windows machine with bridge adapter to make VM get IP address from host network.
 
-![Untitled](https://s3.us-west-2.amazonaws.com/secure.notion-static.com/b81a699e-ec9e-41d8-a38b-78bf85de348c/portscanner_%281%29.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20211020%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20211020T000900Z&X-Amz-Expires=86400&X-Amz-Signature=ecb587424dfc351d5c816172e86ac51041c9a30dbcb61a7f14aad2fa4b46715b&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D"portscanner%2520%281%29.png")
+![Untitled](https://s3.us-west-2.amazonaws.com/secure.notion-static.com/9d3475f7-ade8-4901-8cd4-93ae610fef67/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20211020%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20211020T090203Z&X-Amz-Expires=86400&X-Amz-Signature=079d0194ab4549bebe243c18fb7f6b585869690bad27bb6ae31fc6fd587d4469&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D"Untitled.png")
 
 - If Host (where the Web Application is running) is Windows, disable the Security Firewall. Probably there is a least-priviledged approach here, but for simplicity disable it to ping Host from VM.
 
