@@ -1,0 +1,13 @@
+certifi==2021.10.8
+click==7.1.2
+colorama==0.4.4
+dependency-injector==4.36.2
+elasticsearch==7.15.0
+icmplib==1.2.2
+jollyip==0.0.3
+pprintpp==0.4.0
+redis==3.5.3
+rich==0.3.3
+six==1.16.0
+typing-extensions==3.10.0.2
+urllib3==1.26.7

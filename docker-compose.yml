@@ -1,0 +1,49 @@
+version: "2.2"
+services:
+  frontend:
+    container_name: frontend
+    build: ./frontend
+    volumes:
+      - "./frontend:/app"
+      - "/app/node_modules"
+    ports:
+      - 3000:3000
+  web:
+    build: ./back_end
+    ports:
+      - 5000:5000
+    volumes:
+      - ./back_end/:/usr/src/app/
+    depends_on:
+      - redis
+      - es01
+    links:
+      - redis
+      - es01
+  es01:
+    image: docker.elastic.co/elasticsearch/elasticsearch:7.15.0
+    environment:
+      - "discovery.type=single-node"
+      - node.name=es01
+      - bootstrap.memory_lock=true
+      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+    volumes:
+      - data01:/usr/share/elasticsearch/data
+    ports:
+      - 9200:9200
+  redis:
+    image: "redis:5.0.4-stretch"
+    restart: "${DOCKER_RESTART_POLICY:-unless-stopped}"
+    stop_grace_period: "${DOCKER_STOP_GRACE_PERIOD:-3s}"
+    ports:
+      - 6379:6379
+    volumes:
+      - "redis:/data"
+volumes:
+  data01:
+    driver: local
+  redis: {}
