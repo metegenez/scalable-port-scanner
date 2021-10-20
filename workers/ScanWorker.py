@@ -34,6 +34,7 @@ class ScanWorker():
 
     def execute_message(self, message):
         target_ips, port_list, job_id = ScanWorker.convert_message_to_variables(message)
+        print("{} is executing.".format(job_id))
         self.elastic.index_scan_start(job_id)
         all_ips = ScanWorker.calculate_ip_addresses(target_ips)
         # Get ip address OS information during ping with TTL defaults.

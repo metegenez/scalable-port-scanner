@@ -14,7 +14,6 @@ class IPPinger:
         Does not show any output, either as popup window or in command line.
         Python 3.5+, Windows and Linux compatible
         '''
-        print(host_or_ip)
         # The ping command is the same for Windows and Linux, except for the "number of packets" flag.
         if platform.system().lower() == 'windows':
             command = ['ping', '-n', str(packets), '-w', str(timeout), host_or_ip]
