@@ -41,16 +41,12 @@ def enqueue_job():
         "ip_info": [],
         "ip_port_info": []
     }
-    print("es oncesi")
     es.index(index=INDEX_NAME, id=job_id, body=body)
     # For workers, put ips into message broker.
     msg_id = str(uuid4())
-    print("sending message", flush=True)
-    print(r.execute_command("PING"), flush=True)
     r.execute_command("HSET", "messages", msg_id, ip_range +
                       "#" + port_range + "#" + job_id)
     r.execute_command("ZADD", "due", datetime.now().timestamp(), msg_id)
-    print(r, flush=True)
     return job_id
 
 

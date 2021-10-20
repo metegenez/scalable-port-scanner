@@ -33,7 +33,7 @@ class IPPinger:
             command = ['ping', '-c', str(packets), '-w', str(timeout), host_or_ip]
             # run parameters: discard output and error messages
             result = subprocess.run(command, stdin=subprocess.DEVNULL, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
-            return IPPinger.guess_online_linux(result)
+            return "Unknown" if IPPinger.guess_online_linux(result) else False #OS detection is not implemented for Linux
 
     @staticmethod
     def guess_online_win(result):
