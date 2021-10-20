@@ -192,7 +192,7 @@ To test application locally, we need virtual machines and Docker Desktop (Window
 
 - Create a Linux/Windows machine with bridge adapter to make VM get IP address from host network.
 
-![Untitled](Scalable%20Port%20Scanner%207ce67e5833e9476384a953f2120e8b74/Untitled.png)
+![Untitled](https://s3.us-west-2.amazonaws.com/secure.notion-static.com/b81a699e-ec9e-41d8-a38b-78bf85de348c/portscanner_%281%29.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20211020%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20211020T000900Z&X-Amz-Expires=86400&X-Amz-Signature=ecb587424dfc351d5c816172e86ac51041c9a30dbcb61a7f14aad2fa4b46715b&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D"portscanner%2520%281%29.png")
 
 - If Host (where the Web Application is running) is Windows, disable the Security Firewall. Probably there is a least-priviledged approach here, but for simplicity disable it to ping Host from VM.
 
