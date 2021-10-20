@@ -20,7 +20,17 @@ class OsChart extends React.Component {
             datasets: [
               {
                 label: "# of OS",
-                data: [12, 19, 3],
+                data: [
+                  Object.values(this.props.ip_info[0]).filter(
+                    (item) => item.OS === "Windows"
+                  ).length,
+                  Object.values(this.props.ip_info[0]).filter(
+                    (item) => item.OS === "Linux"
+                  ).length,
+                  Object.values(this.props.ip_info[0]).filter(
+                    (item) => item.OS === "Unknown"
+                  ).length,
+                ],
                 backgroundColor: [
                   "rgba(255, 99, 132, 0.2)",
                   "rgba(54, 162, 235, 0.2)",
@@ -40,9 +50,23 @@ class OsChart extends React.Component {
     );
   }
 }
-
 function mapStateToProps(state) {
-  return {};
+  const { current_job } = state.main;
+
+  return {
+    // Acıklama
+    // Environment
+    temp_key: current_job === undefined ? "charempty" : "charfull",
+
+    current_job:
+      current_job === undefined ? undefined : current_job.detail._source,
+    ip_info:
+      current_job === undefined ? {} : current_job.detail._source.ip_info,
+    ip_addresses:
+      current_job === undefined || current_job.ip_addresses === undefined
+        ? []
+        : current_job.ip_addresses,
+  };
 }
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {};
