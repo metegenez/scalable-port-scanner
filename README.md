@@ -90,7 +90,7 @@ In this application, a port scanner was developed that can scan computers in a n
 
 Workers are designed to be work in a distributed manner. There 3 main steps to scan given IP range and port range. We enabled that each job is executed in different machine, or next to a job finishes. This means, we do not divide the jobs between nodes. This can cause an suboptimal load balancing if jobs are different in size and job count is low. 
 
-![portscanner (1).png](Scalable%20Port%20Scanner%207ce67e5833e9476384a953f2120e8b74/portscanner_(1).png)
+![portscanner (1).png](https://s3.us-west-2.amazonaws.com/secure.notion-static.com/b81a699e-ec9e-41d8-a38b-78bf85de348c/portscanner_%281%29.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20211020%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20211020T100301Z&X-Amz-Expires=86400&X-Amz-Signature=b4cbadc808e89aa227506663b6ea9389266f111f27a4d3f45799f1dac5ede482&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D"portscanner%2520%281%29.png")
 
 ### Pooling
 
