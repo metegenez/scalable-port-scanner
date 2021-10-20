@@ -6,7 +6,7 @@ In this application, a port scanner was developed that can scan computers in a n
 
 The requirements of the designed system are that Workers can process different JOB requests on different machines at the same time and index the outputs of these requests in a DB. This means scalable services. Although this scaling is manual, it requires a message queue and services that periodically pool that queue.
 
-![portscanner.png](Scalable%20Port%20Scanner%207ce67e5833e9476384a953f2120e8b74/portscanner.png)
+![portscanner.png](https://s3.us-west-2.amazonaws.com/secure.notion-static.com/b708ae39-bdf5-4046-83d6-7a13b7da4ae8/portscanner.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20211020%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20211020T000321Z&X-Amz-Expires=86400&X-Amz-Signature=2852fe54a6a8a7674798f1feb04d16a0659edc6ef123c746ccc7f34362dae339&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D"portscanner.png")
 
 For this reason, Redis was preferred as a message queue and added to the system. In this way, it is ensured that transactions are queued and consumed by different service replicas.
 
