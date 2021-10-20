@@ -250,13 +250,13 @@ To test application locally, we need virtual machines and Docker Desktop (Window
     - Install requirements. (You can use venv also.)
     
     ```python
-    pip install -r requirements.txt
+    pip install -r ./workers/requirements.txt
     ```
     
     - Run it.
     
     ```python
-    python ./worker/main.py
+    python ./workers/main.py
     ```
     
 
