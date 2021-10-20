@@ -4,7 +4,6 @@ from typing import List, Dict
 from PortServiceGuesser import PortServiceGuesser
 import itertools
 import configparser
-from dependency_injector.wiring import Provide
 DEFAULT_TIMEOUT = 0.5
 SUCCESS = 0
 class PortScanner():

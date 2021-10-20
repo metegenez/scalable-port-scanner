@@ -1,5 +1,3 @@
-from typing import List
-
 from PortScanner import PortScanner
 import time
 from IPPinger import IPPinger

@@ -1,6 +1,4 @@
-from elasticsearch import Elasticsearch, helpers, ElasticsearchException
-from dependency_injector import containers, providers
-from dependency_injector.wiring import inject, Provide
+from elasticsearch import Elasticsearch, ElasticsearchException
 import redis
 from datetime import datetime
 from uuid import uuid4

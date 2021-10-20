@@ -1,7 +1,3 @@
-import sys
-from dependency_injector.wiring import inject, Provide
-from ScanWorker import ScanWorker
-from containers import Container
 from ScanWorker import ScanWorker
 
 
