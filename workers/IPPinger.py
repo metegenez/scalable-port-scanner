@@ -1,9 +1,10 @@
 import subprocess, platform
 import concurrent.futures
 import re
-
+import configparser
 class IPPinger:
     def __init__(self):
+
         pass
 
     @staticmethod
@@ -77,5 +78,7 @@ class IPPinger:
         :param all_hosts: List of string
         :return:
         """
-        with concurrent.futures.ThreadPoolExecutor(max_workers=100) as executor:
+        config = configparser.ConfigParser()
+        config.read('config.ini')
+        with concurrent.futures.ThreadPoolExecutor(max_workers=int(config["threading"]["max_thread"])) as executor:
             return list(executor.map(lambda host: IPPinger.ping(host), all_hosts))

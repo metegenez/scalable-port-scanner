@@ -3,10 +3,8 @@ from typing import List
 from PortScanner import PortScanner
 import time
 from IPPinger import IPPinger
-from services import RedisMBConnector
-from services import ElasticService
-from dependency_injector.wiring import inject, Provide
 import ipaddress
+from services import*
 
 # Poll queue
 # Scan ports for each IP
@@ -14,9 +12,9 @@ import ipaddress
 
 class ScanWorker():
 
-    def __init__(self, redis: RedisMBConnector = Provide["redis_service"], elastic: ElasticService = Provide["es_service"]):
-        self.redis = redis
-        self.elastic = elastic
+    def __init__(self):
+        self.redis = RedisMBConnector()
+        self.elastic = ElasticService()
         self.port_scanner = PortScanner()
         self.pinger = IPPinger()
 

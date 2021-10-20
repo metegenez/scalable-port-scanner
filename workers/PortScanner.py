@@ -3,6 +3,7 @@ import concurrent.futures
 from typing import List, Dict
 from PortServiceGuesser import PortServiceGuesser
 import itertools
+import configparser
 from dependency_injector.wiring import Provide
 DEFAULT_TIMEOUT = 0.5
 SUCCESS = 0
@@ -86,7 +87,9 @@ class PortScanner():
 
     @staticmethod
     def scan_range(all_tuples) -> List[int]:
-        with concurrent.futures.ThreadPoolExecutor(max_workers=100) as executor:
+        config = configparser.ConfigParser()
+        config.read('config.ini')
+        with concurrent.futures.ThreadPoolExecutor(max_workers=int(config["threading"]["max_thread"])) as executor:
             # Multithread trial.
             return list(executor.map(lambda target_tuple: PortScanner.check_port(target_tuple), all_tuples))
 

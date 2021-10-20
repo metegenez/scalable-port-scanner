@@ -3,17 +3,22 @@ from dependency_injector import containers, providers
 from dependency_injector.wiring import inject, Provide
 import redis
 from datetime import datetime
-
-
+from uuid import uuid4
+import configparser
 class Connector():
     def __init__(self) -> None:
+        self.config = configparser.ConfigParser()
+        self.config.read('config.ini')
         pass
 
 
 class RedisMBConnector(Connector):
-    def __init__(self, redis: redis.Redis = Provide["redis"]):
+    def __init__(self):
         super().__init__()
-        self.r = redis
+        self.r = redis.Redis(host=self.config["host"]["ip"],
+        port=6379,
+        db=0,
+        client_name="worker"+str(uuid4()))
 
     def if_batch_contains_messages(self):
         try:
@@ -40,9 +45,9 @@ class RedisMBConnector(Connector):
 
 
 class ElasticService(Connector):
-    def __init__(self, elastic: Elasticsearch = Provide["es"]):
+    def __init__(self):
         super().__init__()
-        self.es = elastic
+        self.es = Elasticsearch(host=self.config["host"]["ip"])
 
     def index_scan_start(self, job_id):
         try:
