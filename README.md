@@ -1,5 +1,14 @@
 # Scalable Port Scanner
 
+In this application, a port scanner was developed that can scan computers in a network in a multithreaded and distributed manner. Basically, elements that could create bottlenecks on the application were made multithreaded and mapped efficiently.
+
+# System Design
+
+The requirements of the designed system are that Workers can process different JOB requests on different machines at the same time and index the outputs of these requests in a DB. This means scalable services. Although this scaling is manual, it requires a message queue and services that periodically pool that queue.
+
+![portscanner.png](https://s3.us-west-2.amazonaws.com/secure.notion-static.com/b708ae39-bdf5-4046-83d6-7a13b7da4ae8/portscanner.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20211025%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20211025T122451Z&X-Amz-Expires=86400&X-Amz-Signature=45ed77ceab10f399be746a69227a427b47d6693fba275a7a80ad55eba3c17e6c&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D"portscanner.png")
+
+For this reason, Redis was preferred as a message queue and added to the system. In this way, it is ensured that transactions are queued and consumed by different service replicas.
 
 # Setup
 
