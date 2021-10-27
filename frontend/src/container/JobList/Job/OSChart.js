@@ -61,7 +61,7 @@ function mapStateToProps(state) {
     current_job:
       current_job === undefined ? undefined : current_job.detail._source,
     ip_info:
-      current_job === undefined ? {} : current_job.detail._source.ip_info,
+      current_job === undefined ? [{}] : current_job.detail._source.ip_info,
     ip_addresses:
       current_job === undefined || current_job.ip_addresses === undefined
         ? []
